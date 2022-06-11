@@ -1,0 +1,564 @@
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,700;1,400&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+$desktop-2: 1024px;
+$tablet: 768px;
+$mobile-1: 425px;
+$mobile-2: 375px;
+$mobile-3: 320px;
+
+@mixin desktop-2 {
+  @media (max-width: #{$desktop-2}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin mobile-1 {
+  @media (max-width: #{$mobile-1}) {
+    @content;
+  }
+}
+
+@mixin mobile-2 {
+  @media (max-width: #{$mobile-2}) {
+    @content;
+  }
+}
+
+@mixin mobile-3 {
+  @media (max-width: #{$mobile-3}) {
+    @content;
+  }
+}
+
+body {
+  font-family: "Public Sans", sans-serif;
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 1rem;
+
+    @include tablet {
+      width: 123%;
+    }
+
+    a {
+      color: hsl(233, 8%, 62%);
+      text-decoration: none;
+      margin: 0 0.9rem;
+      transition: all 0.2s ease;
+
+      @include mobile-1 {
+        display: none;
+      }
+    }
+
+    a:hover {
+      border-bottom: 2.5px solid hsl(192, 70%, 51%);
+    }
+
+    button {
+      margin-right: 5rem;
+      border: none;
+      border-radius: 16px;
+      color: #fff;
+      background-image: linear-gradient(
+        to right,
+        hsl(136, 65%, 51%),
+        hsl(192, 70%, 51%)
+      );
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      @include desktop-2 {
+        margin-right: -2rem;
+      }
+
+      @include mobile-1 {
+        display: none;
+      }
+    }
+
+    button:hover {
+      opacity: 0.7;
+    }
+
+    #burger {
+      display: none !important;
+
+      @include mobile-1 {
+        display: block;
+        background: none;
+        position: absolute;
+        left: 41rem;
+      }
+    }
+
+    #close {
+      display: none;
+
+      @include mobile-1 {
+        background: none;
+        position: absolute;
+        left: 41.3rem;
+      }
+    }
+  }
+
+  #first {
+    display: flex;
+
+    @include mobile-1 {
+      flex-direction: column-reverse;
+    }
+
+    .mobile-menu {
+      display: none;
+
+      @include mobile-1 {
+        position: absolute;
+        top: 5rem;
+        left: 8rem;
+        z-index: 3;
+        padding: 3.5rem 11.5rem;
+        border-radius: 10px;
+        background-color: #fff;
+        box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.25);
+      }
+
+      ul {
+        display: flex;
+        flex-direction: column;
+
+        a {
+          text-decoration: none;
+          color: #000;
+          font-size: 30px;
+          margin: 0.5rem 0;
+        }
+      }
+    }
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      h1 {
+        font-size: 41px;
+        font-weight: 500;
+        padding: 4rem;
+        margin-top: -6rem;
+
+        @include tablet {
+          margin-top: -1rem;
+          margin-left: 4rem;
+          width: 124%;
+        }
+
+        @include mobile-1 {
+          margin-top: -10rem;
+          margin-left: 22rem;
+          width: 132%;
+          font-size: 58px;
+        }
+      }
+
+      p {
+        margin-top: -3rem;
+        margin-left: 3rem;
+        color: hsl(233, 8%, 62%);
+        padding: 0rem;
+        width: 85%;
+        line-height: 1.6rem;
+
+        @include mobile-1 {
+          width: 122%;
+          line-height: 2.2rem;
+          font-size: 24px;
+          margin-left: 22rem;
+        }
+      }
+
+      button {
+        margin-top: 1.4rem;
+        margin-left: -18rem;
+        border: none;
+        border-radius: 16px;
+        color: #fff;
+        background-image: linear-gradient(
+          to right,
+          hsl(136, 65%, 51%),
+          hsl(192, 70%, 51%)
+        );
+        padding: 0.7rem 1.4rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        @include desktop-2 {
+          margin-left: -14rem;
+        }
+
+        @include tablet {
+          margin-left: -10rem;
+        }
+
+        @include mobile-1 {
+          padding: 1rem 1.4rem;
+          width: 62%;
+          border-radius: 28px;
+          margin-top: 2.4rem;
+          margin-left: 20rem;
+          font-size: 24px;
+        }
+      }
+
+      button:hover {
+        opacity: 0.7;
+      }
+    }
+
+    .right {
+      #hero {
+        width: 99%;
+
+        @include tablet {
+          width: 144%;
+        }
+
+        @include mobile-1 {
+          display: none;
+        }
+      }
+      #mockup {
+        position: absolute;
+        left: 42rem;
+        width: 39%;
+        top: 3rem;
+
+        @include tablet {
+          left: 35rem;
+          width: 50%;
+          top: 4rem;
+        }
+
+        @include mobile-1 {
+          left: 7rem;
+          width: 128%;
+          top: 6rem;
+        }
+      }
+      #hero-mobile {
+        display: none;
+        @include mobile-1 {
+          display: block;
+          width: 175%;
+        }
+      }
+    }
+  }
+
+  #second {
+    background-color: hsl(0, 0%, 98%);
+    padding: 2.5rem;
+
+    @include tablet {
+      width: 125%;
+    }
+
+    @include mobile-1 {
+      width: 160%;
+    }
+
+    .top {
+      margin-top: 1rem;
+      margin-left: 2.5rem;
+
+      @include mobile-1 {
+        margin-left: 8.5rem;
+      }
+
+      h2 {
+        font-weight: 300;
+        font-size: 30px;
+
+        @include mobile-1 {
+          font-size: 39px;
+        }
+      }
+
+      p {
+        margin-top: 1.1rem;
+        width: 50%;
+        color: hsl(233, 8%, 62%);
+
+        @include mobile-1 {
+          width: 82%;
+          font-size: 24px;
+        }
+      }
+    }
+
+    .grid-1 {
+      display: grid;
+      grid-template-columns: 20% 20% 20% 20%;
+      gap: 3rem;
+      margin-left: 2rem;
+      margin-top: 3.5rem;
+
+      @include mobile-1 {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        @include mobile-1 {
+          display: flex;
+          flex-direction: column;
+        }
+
+        img {
+          @include mobile-1 {
+            width: 20%;
+            margin-left: 14rem;
+          }
+        }
+      }
+
+      h3 {
+        margin: 1.5rem 0;
+        font-weight: 300;
+
+        @include mobile-1 {
+          margin: 1.5rem auto;
+          font-size: 28px;
+        }
+      }
+
+      p {
+        color: hsl(233, 8%, 62%);
+        line-height: 1.4rem;
+
+        @include mobile-1 {
+          line-height: 2rem;
+          font-size: 23px;
+          width: 84%;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+
+  #third {
+    padding: 3rem;
+
+    @include tablet {
+      width: 122%;
+    }
+
+    h2 {
+      font-size: 33px;
+      font-weight: 300;
+      margin-left: 0.8rem;
+
+      @include mobile-1 {
+        font-size: 39px;
+        margin-left: 10rem;
+      }
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 22% 22% 22% 22%;
+      gap: 2rem;
+      margin-top: 1.5rem;
+      padding: 1rem;
+
+      @include tablet {
+        grid-template-columns: 45% 45%;
+        gap: 2rem 4rem;
+      }
+
+      @include mobile-1 {
+        grid-template-columns: 1fr;
+        margin-left: 4rem;
+        width: 107%;
+      }
+
+      img {
+        width: 100%;
+        height: 11rem;
+      }
+
+      h4 {
+        color: hsl(233, 8%, 62%);
+        margin: 1.1rem 0;
+        font-size: 14px;
+        font-weight: 300;
+
+        @include mobile-1 {
+          font-size: 20px;
+        }
+      }
+
+      a {
+        color: hsl(233, 26%, 24%);
+        text-decoration: none;
+        transition: all 0.2s ease;
+        cursor: pointer;
+      }
+
+      a:hover {
+        color: hsl(136, 65%, 51%);
+      }
+
+      h3 {
+        font-weight: 300;
+
+        @include mobile-1 {
+          font-size: 27px;
+        }
+      }
+
+      p {
+        color: hsl(233, 8%, 62%);
+        margin-top: 1rem;
+        line-height: 1.4rem;
+        width: 84%;
+
+        @include desktop-2 {
+          width: 100%;
+        }
+
+        @include mobile-1 {
+          font-size: 24px;
+          line-height: 2rem;
+        }
+      }
+    }
+  }
+
+  footer {
+    background-color: hsl(233, 26%, 24%);
+    padding: 2rem 1.5rem;
+    display: grid;
+    grid-template-columns: 20% 20% 20% 40%;
+
+    @include desktop-2 {
+      width: 104.5%;
+    }
+
+    @include tablet {
+      width: 125%;
+    }
+
+    @include mobile-1 {
+      grid-template-columns: 1fr;
+      width: 175.5%;
+      justify-items: center;
+    }
+
+    .left {
+      img {
+        width: 140%;
+      }
+    }
+
+    .socials {
+      margin-top: 2rem;
+
+      a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 20px;
+        margin: 0 0.3rem;
+        transition: all 0.2s ease;
+        cursor: pointer;
+
+        @include mobile-1 {
+          font-size: 33px;
+          margin: 0 1.3rem;
+        }
+      }
+
+      a:hover {
+        color: hsl(136, 65%, 51%);
+      }
+    }
+    .center {
+      display: flex;
+      flex-direction: column;
+
+      a {
+        font-weight: 300;
+        text-decoration: none;
+        color: #fff;
+        margin: 0.4rem 0;
+        transition: all 0.2s ease;
+
+        @include mobile-1 {
+          font-size: 23px;
+          margin: 0.4rem auto;
+        }
+      }
+
+      a:hover {
+        color: hsl(136, 65%, 51%);
+      }
+    }
+
+    .right {
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      align-items: flex-end;
+
+      @include mobile-1 {
+        align-items: center;
+        margin-top: 3.5rem;
+      }
+
+      button {
+        margin-top: -1rem;
+        border: none;
+        border-radius: 16px;
+        color: #fff;
+        background-image: linear-gradient(
+          to right,
+          hsl(136, 65%, 51%),
+          hsl(192, 70%, 51%)
+        );
+        padding: 0.7rem 1.4rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        @include mobile-1 {
+          font-size: 23px;
+        }
+      }
+
+      button:hover {
+        opacity: 0.7;
+      }
+
+      p {
+        color: hsl(233, 8%, 62%);
+        margin-top: 1rem;
+      }
+    }
+  }
+}
